@@ -1,0 +1,7 @@
+OnEnable: "Command Logger Plugin has been started!"
+OnDisable: "Command Logger Plugin was stopped"
+
+BotSettings:
+  botToken: ""
+  botID: ""
+  chatID: ""
