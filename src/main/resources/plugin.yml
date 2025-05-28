@@ -1,0 +1,6 @@
+name: CmdLogger
+version: '2.0'
+main: com.xMatyDen.cmdLogger.CmdLogger
+api-version: '1.18'
+authors: [ xMatyDen ]
+description: Sends to players Welcome message
