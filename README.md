@@ -1,47 +1,106 @@
-English / Русский
+📦 Logger Plugin for Minecraft (Paper)
+A simple plugin for logging specific player commands to a Telegram group using your own bot.
 
-HOW TO USE PLUGIN?
-Install the plugin on your server and start the server to enable the plugin.
-Then, go to the config.yml file in the plugins/Logger folder.
+🌍 English
+🔧 How to Use the Plugin
+Install the plugin on your server and start the server to enable it.
 
-config.yml:
-    bot-token: "" – Insert the Telegram bot token inside the quotes.
-        - Create a bot using the official Telegram Bot @BotFather.
-        - Enter the command /newbot and follow the instructions from BotFather.
-        - At the end, copy and paste the generated token into the config.yml file (bot-token: "").
-    bot-id: "@username" - Inert the public bot's username.
-    chat-id: "" – Insert the group ID inside the quotes where the bot will send logs.
-        - Create a private group in Telegram.
-        - Add the bot "What's my Telegram ID?" (@my_id_bot) to the group.
-        - As soon as you add the bot, it will send the group ID in the chat.
-        - Copy and paste the ID into the configuration file (chat-id: "").
-        - After that, you can add the previously created bot to your private group to send logs.
-    log-commands: – Specify all necessary commands to log in the following format:
-        - "/command1"
-        - "/command2"
-        - "/command3"
-The specified commands will be sent to the chat via the bot in the following format:
-Player [nick] ran command: [/ban Player cheat (like an example)] at world [world's name] [(coordinates)]
+Navigate to the configuration file:
+plugins/Logger/config.yml
 
-Как использовать плагин?
-Установите плагин на свой сервер и запустите сервер, чтобы плагин включился.
-После зайдите в файл config.yml в папке plugins/Logger.
+⚙️ Configuration: config.yml
+bot-token: ""     # Insert your Telegram bot token
+bot-id: "@username"  # Insert your bot’s public username
+chat-id: ""       # Insert the Telegram group ID where logs will be sent
+log-commands:
+  - "/command1"
+  - "/command2"
+  - "/command3"
+🧾 Instructions
+🔹 bot-token
+Create a bot using the official @BotFather.
 
-config.yml:
-    bot-token: "" - внесите в скобки токен Телеграм бота.
-        - Создайте бота в официальном Боте Телеграм @BotFather.
-        - Введите команду /newbot и следуйте дальнейшим инструкциям от BotFather.
-        - В конце скопируйте и вставьте полученный токен в файл config.yml (bot-token: "").
-    chat-id: "" - вставьте ID группы в скобки, куда бот будет отправлять логи.
-        - Создайте частную группу в Телеграм.
-        - Добавьте в эту группу бота "What's my Telegram ID?" (@my_id_bot).
-        - Сразу после добавления бота в группу, он пришлет в чат ID группы.
-        - Скопируйте и вставьте ID в настройки конфигурации (chat-id: "").
-        - После можете добавить ранее созданного Вами бота для отправки логов в вашу приватную группу.
-    bot-id: "@username" - Вставьте публичный username бота в скобки.
-    log-commands: - укажите все необходимые команды для логирования в формате:
-        - "/command1"
-        - "/command2"
-        - "/command3"
-Указанные команды будут отправляться в чат через бота в формате:
-Player [ник игрока] ran command: [/ban Player cheat (как пример)] at world [название мира] [(координаты)]
+Use the command /newbot and follow the instructions.
+
+Copy the generated token and paste it into bot-token.
+
+🔹 bot-id
+Use the format @your_bot_username.
+
+🔹 chat-id
+Create a private group in Telegram.
+
+Add the bot @my_id_bot to the group.
+
+The bot will send the group ID to the chat.
+
+Copy and paste this ID into chat-id.
+
+Then add your own bot (created earlier) to the group.
+
+🔹 log-commands
+List the commands you want to monitor.
+
+Example:
+log-commands:
+  - "/ban"
+  - "/kick"
+  - "/op"
+📤 Log Format
+When a listed command is used, the bot sends a message like:
+Player [PlayerName] ran command: [/ban Player cheat] at world [world_name] [(X, Y, Z)]
+
+🇷🇺 Русский
+🔧 Как использовать плагин
+Установите плагин на сервер и запустите сервер, чтобы он активировался.
+
+Перейдите в файл настроек:
+plugins/Logger/config.yml
+
+⚙️ Конфигурация: config.yml
+bot-token: ""     # Вставьте токен Телеграм-бота
+bot-id: "@username"  # Вставьте публичный username бота
+chat-id: ""       # Вставьте ID группы в Телеграм
+log-commands:
+  - "/command1"
+  - "/command2"
+  - "/command3"
+🧾 Инструкция
+🔹 bot-token
+Создайте бота через официального @BotFather.
+
+Введите команду /newbot и следуйте инструкциям.
+
+Скопируйте полученный токен и вставьте в bot-token.
+
+🔹 bot-id
+Формат: @имя_бота (username).
+
+🔹 chat-id
+Создайте частную группу в Телеграм.
+
+Добавьте туда бота @my_id_bot.
+
+Бот отправит ID группы в чат.
+
+Вставьте этот ID в chat-id.
+
+Добавьте своего бота в группу, чтобы он мог отправлять логи.
+
+🔹 log-commands
+Укажите команды, которые необходимо логировать.
+
+Пример:
+log-commands:
+  - "/ban"
+  - "/kick"
+  - "/op"
+
+📤 Формат сообщения
+Когда указанные команды используются, бот отправляет сообщение в чат:
+Player [Ник] ran command: [/ban Player cheat] at world [название_мира] [(X, Y, Z)]
+
+
+✅ Supports Minecraft Paper Core
+📬 Send logs directly to Telegram
+🛠️ Customizable command list
