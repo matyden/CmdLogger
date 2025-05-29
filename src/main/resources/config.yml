@@ -5,3 +5,10 @@ BotSettings:
   botToken: ""
   botID: ""
   chatID: ""
+
+SendLog: "Player %s ran command %s at world %s (x: %.1f, y: %.1f, z: %.1f)"
+
+LogCommands:
+  - "/ban"
+  - "/tp"
+  - "/time"

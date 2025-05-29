@@ -3,6 +3,8 @@ package com.xMatyDen.cmdLogger.services;
 import com.xMatyDen.cmdLogger.CmdLogger;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.List;
+
 public class ConfigServices {
     private final FileConfiguration config;
 
@@ -28,6 +30,14 @@ public class ConfigServices {
 
     public String getChatID() {
         return config.getString("BotSettings.chatID");
+    }
+
+    public List<String> getLogCommands() {
+        return config.getStringList("LogCommands");
+    }
+
+    public String getSendLogMessage() {
+        return config.getString("SendLog");
     }
 
 }

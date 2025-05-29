@@ -1,21 +1,24 @@
 package com.xMatyDen.cmdLogger;
 
 import com.xMatyDen.cmdLogger.services.ConfigServices;
+import com.xMatyDen.cmdLogger.services.TelegramSendLog;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerCommandSendEvent;
 
 import java.util.List;
 
 public class Logger implements Listener {
     private final ConfigServices configServices;
-    private List<String> trackedCommands;
+    private final List<String> trackedCommands;
+    private final TelegramSendLog sendLog;
 
-    public Logger(ConfigServices configServices) {
+    public Logger(ConfigServices configServices, TelegramSendLog sendLog) {
         this.configServices = configServices;
+        trackedCommands = configServices.getLogCommands();
+        this.sendLog = sendLog;
     }
 
     @EventHandler
@@ -29,6 +32,9 @@ public class Logger implements Listener {
             double x = loc.getX();
             double y = loc.getY();
             double z = loc.getZ();
+
+            String message = String.format(configServices.getSendLogMessage(), player.getName(), fullCommand, world, x, y, z);
+            sendLog.sendLog(message);
         }
     }
 }

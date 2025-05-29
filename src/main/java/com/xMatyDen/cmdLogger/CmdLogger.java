@@ -1,20 +1,21 @@
 package com.xMatyDen.cmdLogger;
 
 import com.xMatyDen.cmdLogger.services.ConfigServices;
+import com.xMatyDen.cmdLogger.services.TelegramSendLog;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class CmdLogger extends JavaPlugin {
-    private final ConfigServices configServices;
-
-    public CmdLogger(ConfigServices configServices) {
-        this.configServices = configServices;
-    }
+    private ConfigServices configServices;
+    private TelegramSendLog telegramSendLog;
 
     @Override
     public void onEnable() {
-        saveDefaultConfig();
+        this.saveDefaultConfig();
         reloadConfig();
+        this.configServices = new ConfigServices(this);
+        this.telegramSendLog = new TelegramSendLog(configServices, this);
         getLogger().info(configServices.getOnEnableMessage());
+        getServer().getPluginManager().registerEvents(new Logger(configServices, telegramSendLog), this);
     }
 
     @Override
